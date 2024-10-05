@@ -20,9 +20,18 @@ Define_Module(Server);
 void Server::initialize()
 {
     // TODO - Generated method body
+    messagesReceived = 0;
 }
 
 void Server::handleMessage(cMessage *msg)
 {
-    // TODO - Generated method body
+    EV << "Message Received";
+    if(messagesReceived++ >=9){
+        for (int i=0; i<gateSize("port$o"); i++) {
+                    cMessage *copy = msg->dup();
+                    send(copy, "port$o", i);
+                }
+    }
+
+    delete msg;
 }

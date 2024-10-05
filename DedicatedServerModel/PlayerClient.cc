@@ -27,9 +27,15 @@ void PlayerClient::initialize()
 
     playerId = par("playerId").intValue();
     teamNumber = playerId%2;
+
+    cMessage *information = new cMessage();
+    send(information, "port$o", 0);
 }
 
 void PlayerClient::handleMessage(cMessage *msg)
 {
-    // TODO - Generated method body
+    EV << "Message Received";
+    cMessage *answer = new cMessage();
+    sendDelayed(answer, uniform(10,60), "port$o", 0);
+    delete msg;
 }
