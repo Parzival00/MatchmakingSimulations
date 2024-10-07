@@ -20,7 +20,11 @@ Define_Module(Peer);
 void Peer::initialize()
 {
     peerID = getIndex();
-    elo = par("elo");
+
+    std::default_random_engine generator;
+    std::normal_distribution<double> distribution(1500.0,200.0);
+
+    elo = distribution(generator);
 
 
     cMessage *startMatchmakingMsg = new cMessage("startMatchmaking");
