@@ -30,7 +30,15 @@ class PlayerClient : public cSimpleModule
     int playerId;
     float elo;
     int teamNumber;
-
+  private:
+    cOutVector eloVector;
+    cOutVector teamVector;
+    cOutVector pingVector;
+    simtime_t startTime;
+    simtime_t endTime;
+    double timeTaken = 0;
+    int messagesReceived;
+    double averageMessage;
 };
 
 #endif

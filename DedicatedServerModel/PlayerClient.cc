@@ -20,20 +20,35 @@ Define_Module(PlayerClient);
 
 void PlayerClient::initialize()
 {
-    std::default_random_engine generator;
-    std::normal_distribution<double> distribution(1500.0,200.0);
+    static int playerCounter = 0;
+    static std::default_random_engine generator;
+    std::normal_distribution<double> distribution(1500.0,200.0); //gets a random number with a mean of 1500 and a standard deviation of 200 to represent the players ELO score
 
-    elo = distribution(generator);
+    elo = distribution(generator); //assigns the randomly generated ELO to the player
 
-    playerId = par("playerId").intValue();
-    teamNumber = playerId%2;
+    eloVector.setName("ELO");
+    eloVector.record(elo);
+
+    playerId = playerCounter++;
+    teamNumber = playerId%2; //Assigns the player to a team based on their ID in the lobby
+    teamVector.setName("TeamNumber");
+    teamVector.record(teamNumber);
+
+    pingVector.setName("Ping");
 
     cMessage *information = new cMessage();
+    startTime = simTime();
     send(information, "port$o", 0);
 }
 
-void PlayerClient::handleMessage(cMessage *msg)
+void PlayerClient::handleMessage(cMessage *msg) //Response to receiving a message from the server
 {
+    endTime = simTime();
+    timeTaken += endTime.dbl() - startTime.dbl();
+    messagesReceived++;
+    averageMessage = timeTaken/messagesReceived;
+    pingVector.record(averageMessage);
+
     EV << "Message Received";
     cMessage *answer = new cMessage();
     sendDelayed(answer, uniform(10,60), "port$o", 0);

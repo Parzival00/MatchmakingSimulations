@@ -23,7 +23,7 @@ void Server::initialize()
     messagesReceived = 0;
 }
 
-void Server::handleMessage(cMessage *msg)
+void Server::handleMessage(cMessage *msg) //Response to receiving a message from a player
 {
     EV << "Message Received";
     if(messagesReceived++ >=9){

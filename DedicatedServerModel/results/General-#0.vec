@@ -1,0 +1,103 @@
+version 3
+run General-0-20241030-20:51:14-27108
+attr configname General
+attr datetime 20241030-20:51:14
+attr datetimef 20241030-205114
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network DedicatedServerNetwork
+attr processid 27108
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config image-path ../../../../OMNet++/omnetpp-6.0.3/samples/inet4.5/images
+config network DedicatedServerNetwork
+config *.n 10
+
+vector 0 DedicatedServerNetwork.client[0] ELO ETV
+vector 1 DedicatedServerNetwork.client[0] TeamNumber ETV
+vector 2 DedicatedServerNetwork.client[1] ELO ETV
+vector 3 DedicatedServerNetwork.client[1] TeamNumber ETV
+vector 4 DedicatedServerNetwork.client[2] ELO ETV
+vector 5 DedicatedServerNetwork.client[2] TeamNumber ETV
+vector 6 DedicatedServerNetwork.client[3] ELO ETV
+vector 7 DedicatedServerNetwork.client[3] TeamNumber ETV
+vector 8 DedicatedServerNetwork.client[4] ELO ETV
+vector 9 DedicatedServerNetwork.client[4] TeamNumber ETV
+vector 10 DedicatedServerNetwork.client[5] ELO ETV
+vector 11 DedicatedServerNetwork.client[5] TeamNumber ETV
+vector 12 DedicatedServerNetwork.client[6] ELO ETV
+vector 13 DedicatedServerNetwork.client[6] TeamNumber ETV
+vector 14 DedicatedServerNetwork.client[7] ELO ETV
+vector 15 DedicatedServerNetwork.client[7] TeamNumber ETV
+vector 16 DedicatedServerNetwork.client[8] ELO ETV
+vector 17 DedicatedServerNetwork.client[8] TeamNumber ETV
+vector 18 DedicatedServerNetwork.client[9] ELO ETV
+vector 19 DedicatedServerNetwork.client[9] TeamNumber ETV
+vector 20 DedicatedServerNetwork.client[0] Ping ETV
+vector 21 DedicatedServerNetwork.client[1] Ping ETV
+vector 22 DedicatedServerNetwork.client[2] Ping ETV
+vector 23 DedicatedServerNetwork.client[3] Ping ETV
+vector 24 DedicatedServerNetwork.client[4] Ping ETV
+vector 25 DedicatedServerNetwork.client[5] Ping ETV
+vector 26 DedicatedServerNetwork.client[6] Ping ETV
+vector 27 DedicatedServerNetwork.client[7] Ping ETV
+vector 28 DedicatedServerNetwork.client[8] Ping ETV
+vector 29 DedicatedServerNetwork.client[9] Ping ETV
+0	0	0	1475.6068115234
+1	0	0	0
+2	0	0	1636.8580322266
+3	0	0	1
+4	0	0	1506.6539306641
+5	0	0	0
+6	0	0	1506.7211914062
+7	0	0	1
+8	0	0	1592.5064697266
+9	0	0	0
+10	0	0	1924.9353027344
+11	0	0	1
+12	0	0	1704.1925048828
+13	0	0	0
+14	0	0	1474.431640625
+15	0	0	1
+16	0	0	1362.5690917969
+17	0	0	0
+18	0	0	1312.8316650391
+19	0	0	1
+20	11	0	0
+20	22	31.182739839423	10.394246613141
+20	33	37.244158869144	17.106724677142
+21	12	0	0
+21	23	31.182739839423	15.591369919712
+21	34	37.244158869144	22.808966236189
+22	13	0	0
+22	24	31.182739839423	4.2079961045292e-08
+22	35	37.244158869144	9.2339584111229e-08
+23	14	0	-0
+23	25	31.182739839423	-2.2688429381477e-08
+23	36	37.244158869144	-4.9787121602112e-08
+24	15	0	-0
+24	26	31.182739839423	-1.8586363528189e-06
+24	37	37.244158869144	-4.0785617199094e-06
+25	16	0	0
+25	27	31.182739839423	15.591369919712
+25	38	37.244158869144	22.808966236189
+26	17	0	0
+26	28	31.182739839423	0.26651914392669
+26	39	37.244158869144	0.5798889721065
+27	18	0	0
+27	29	31.182739839423	4.2159424979615e-08
+27	40	37.244158869144	9.2513958479813e-08
+28	19	0	0
+28	30	31.182739839423	15.591369919712
+28	41	37.244158869144	22.808966236189
+29	20	0	0
+29	31	31.182739839423	1.7274267570801e-08
+29	42	37.244158869144	3.7906372652435e-08
+
