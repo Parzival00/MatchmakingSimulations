@@ -20,11 +20,21 @@ Define_Module(PlayerClient);
 
 void PlayerClient::initialize()
 {
+    bool usingSBMM = true;
     static int playerCounter = 0;
     static std::default_random_engine generator;
-    std::normal_distribution<double> distribution(1500.0,200.0); //gets a random number with a mean of 1500 and a standard deviation of 200 to represent the players ELO score
+    double deviation = 0;
 
-    elo = distribution(generator); //assigns the randomly generated ELO to the player
+    if(usingSBMM){
+        deviation = 50;
+    }
+    else{
+        deviation = 200;
+    }
+    std::normal_distribution<double> distribution(1500.0, deviation); //gets a random number with a mean of 1500 and a standard deviation of 200 to represent the players ELO score
+    elo = distribution(generator); //assigns the randomly generated ELO to the player based on the normal distribution
+
+
 
     eloVector.setName("ELO");
     eloVector.record(elo);
@@ -38,19 +48,22 @@ void PlayerClient::initialize()
 
     cMessage *information = new cMessage();
     startTime = simTime();
-    send(information, "port$o", 0);
+    send(information, "port$o", 0); //Starts the timer for ping when the first message is sent
 }
 
 void PlayerClient::handleMessage(cMessage *msg) //Response to receiving a message from the server
 {
-    endTime = simTime();
-    timeTaken += endTime.dbl() - startTime.dbl();
+    endTime = simTime(); // Captures the time the message is received
+    timeTaken += endTime.dbl() - startTime.dbl(); // Records the difference in time between when it is received and sen
     messagesReceived++;
-    averageMessage = timeTaken/messagesReceived;
+    averageMessage = timeTaken/messagesReceived; //Calculates the overall average ping
     pingVector.record(averageMessage);
 
     EV << "Message Received";
     cMessage *answer = new cMessage();
-    sendDelayed(answer, uniform(10,60), "port$o", 0);
+
+    if(messagesReceived <= 100) //Stops sending messages after 100 runs
+        sendDelayed(answer, uniform(10,60), "port$o", 0);
+
     delete msg;
 }
