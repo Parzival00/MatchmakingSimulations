@@ -15,6 +15,7 @@
 
 #include "PlayerClient.h"
 #include <random>
+#include <cmath>
 
 Define_Module(PlayerClient);
 
@@ -54,16 +55,15 @@ void PlayerClient::initialize()
 void PlayerClient::handleMessage(cMessage *msg) //Response to receiving a message from the server
 {
     endTime = simTime(); // Captures the time the message is received
-    timeTaken += endTime.dbl() - startTime.dbl(); // Records the difference in time between when it is received and sen
-    messagesReceived++;
-    averageMessage = timeTaken/messagesReceived; //Calculates the overall average ping
+    timeTaken += endTime.inUnit(SIMTIME_MS) - startTime.inUnit(SIMTIME_MS); // Records the difference in time between when it is received and sent
+    averageMessage = abs(timeTaken/++messagesReceived); //Calculates the overall average ping
     pingVector.record(averageMessage);
 
     EV << "Message Received";
     cMessage *answer = new cMessage();
 
-    if(messagesReceived <= 100) //Stops sending messages after 100 runs
-        sendDelayed(answer, uniform(10,60), "port$o", 0);
+    startTime = simTime();
+    sendDelayed(answer, uniform(10,60), "port$o", 0);
 
     delete msg;
 }
