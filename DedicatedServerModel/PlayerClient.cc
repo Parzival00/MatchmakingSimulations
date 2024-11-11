@@ -21,7 +21,7 @@ Define_Module(PlayerClient);
 
 void PlayerClient::initialize()
 {
-    bool usingSBMM = true;
+    bool usingSBMM = false;
     static int playerCounter = 0;
     static std::default_random_engine generator;
     double deviation = 0;
