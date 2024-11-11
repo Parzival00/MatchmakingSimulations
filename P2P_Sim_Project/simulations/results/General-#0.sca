@@ -1,0 +1,46 @@
+version 3
+run General-0-20241101-21:37:53-43156
+attr configname General
+attr datetime 20241101-21:37:53
+attr datetimef 20241101-213753
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network p2p_sim_project.P2PMatchmaking
+attr processid 43156
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config network p2p_sim_project.P2PMatchmaking
+config *.numPeers 10
+config sim-time-limit 10s
+config **.peer[*].elo "intuniform(800, 1200)"
+
+par P2PMatchmaking.peer[0] typename "\"p2p_sim_project.Peer\""
+par P2PMatchmaking.peer[0] elo 972
+par P2PMatchmaking.peer[1] typename "\"p2p_sim_project.Peer\""
+par P2PMatchmaking.peer[1] elo 847
+par P2PMatchmaking.peer[2] typename "\"p2p_sim_project.Peer\""
+par P2PMatchmaking.peer[2] elo 917
+par P2PMatchmaking.peer[3] typename "\"p2p_sim_project.Peer\""
+par P2PMatchmaking.peer[3] elo 992
+par P2PMatchmaking.peer[4] typename "\"p2p_sim_project.Peer\""
+par P2PMatchmaking.peer[4] elo 1123
+par P2PMatchmaking.peer[5] typename "\"p2p_sim_project.Peer\""
+par P2PMatchmaking.peer[5] elo 1051
+par P2PMatchmaking.peer[6] typename "\"p2p_sim_project.Peer\""
+par P2PMatchmaking.peer[6] elo 995
+par P2PMatchmaking.peer[7] typename "\"p2p_sim_project.Peer\""
+par P2PMatchmaking.peer[7] elo 1159
+par P2PMatchmaking.peer[8] typename "\"p2p_sim_project.Peer\""
+par P2PMatchmaking.peer[8] elo 809
+par P2PMatchmaking.peer[9] typename "\"p2p_sim_project.Peer\""
+par P2PMatchmaking.peer[9] elo 1011
+par P2PMatchmaking typename "\"p2p_sim_project.P2PMatchmaking\""
+par P2PMatchmaking numPeers 10
+
